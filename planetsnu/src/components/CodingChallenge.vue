@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr v-on:click="visitGame" v-for="game in games" :key="game.name">
+        <tr v-on:click="visitGame(game.id)" v-for="game in games" :key="game.name">
             <td>{{ game.name }}</td>
             <td>{{ game.shortdescription }}</td>
             <td>{{ game.datecreated }}</td>
@@ -35,6 +35,7 @@ export default {
   data(){
     return {
       games: [],
+      id: null
     }
   },
   methods: {
