@@ -1,18 +1,13 @@
 <template>
   <div id='app'>
-  <table border="1">
+  <table>
     <thead>
         <tr>
             <th>Name</th>
-        
             <th>Short Description</th>
-        
-            <th>Date Created</th>
-        
-            <th>Created By</th>
-        
-            <th>Host Days</th>
-       
+            <th>Date Created</th>      
+            <th>Created By</th>       
+            <th>Host Days</th>      
             <th>Password</th>
         </tr>
     </thead>
@@ -35,7 +30,7 @@ export default {
   el: '#app',
   name: 'CodingChallenge',
   props: {
-    msg: String
+    
   },
   data(){
     return {
@@ -54,6 +49,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+table, td{
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+th, td {
+  text-align: left;
+  padding: 16px;
+}
 h3 {
   margin: 40px 0 0;
 }
