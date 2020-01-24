@@ -39,10 +39,8 @@ export default {
     }
   },
   methods: {
-    visitGame: function (){
-
-      //example game
-      window.open("https://planets.nu/#/sector/353518", "_blank");
+    visitGame: function (id){
+      window.open("https://planets.nu/#/sector/" + id, "_blank");
     }
   },
   mounted(){
