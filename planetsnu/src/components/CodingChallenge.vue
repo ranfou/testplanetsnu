@@ -27,8 +27,6 @@
         </tr>
     </tbody>
 </table>
-
-<button v-on:click="fetchUsers">FetchGames</button>
 </div>
 </template>
 
@@ -44,16 +42,13 @@ export default {
       games: [],
     }
   },
-  methods: {
-    fetchUsers: function () {
-      const baseURI = 'http://api.planets.nu/games/list?status=1'
+  mounted(){
+    const baseURI = 'http://api.planets.nu/games/list?status=1'
       this.$http.get(baseURI)
       .then((result) => {
         this.games = result.data
       })
-    }
   }
-  
 }
 </script>
 
