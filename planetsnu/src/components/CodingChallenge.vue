@@ -1,5 +1,5 @@
 <template>
-  
+  <div id='app'>
   <table>
     <thead>
         <tr>
@@ -26,14 +26,35 @@
         </tr>
     </tbody>
 </table>
+
+    {{ games }}  
+
+<button v-on:click="fetchUsers">FetchGames</button>
+</div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  el: '#app',
+  name: 'CodingChallenge',
   props: {
     msg: String
+  },
+  data(){
+    return {
+      games: [],
+    }
+  },
+  methods: {
+    fetchUsers: function () {
+      const baseURI = 'http://api.planets.nu/games/list'
+      this.$http.get(baseURI)
+      .then((result) => {
+        this.games = result.data
+      })
+    }
   }
+  
 }
 </script>
 
