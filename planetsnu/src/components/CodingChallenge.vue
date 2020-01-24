@@ -12,13 +12,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr v-for="game in games" :key="game.name">
+        <tr v-on:click="visitGame" v-for="game in games" :key="game.name">
             <td>{{ game.name }}</td>
             <td>{{ game.shortdescription }}</td>
             <td>{{ game.datecreated }}</td>
             <td>{{ game.createdby }}</td>
             <td>{{ game.hostdays }}</td>
-            <td>{{ game.password }}</td>
+            <td>{{ game.password }}</td> <!-- check game.haspassword for ternary to show lock icon -->
         </tr>
     </tbody>
 </table>
@@ -37,6 +37,13 @@ export default {
       games: [],
     }
   },
+  methods: {
+    visitGame: function (){
+
+      //example game
+      window.open("https://planets.nu/#/sector/353518", "_blank");
+    }
+  },
   mounted(){
     const baseURI = 'http://api.planets.nu/games/list?status=1'
       this.$http.get(baseURI)
@@ -49,13 +56,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-table, td{
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: 1px solid #ddd;
+table {
+  border-spacing: 1;
+  border: 1px solid grey;
 }
-tr:nth-child(even) {
+tr:nth-child(odd) {
   background-color: #f2f2f2;
+}
+th {
+  background-color:white;
 }
 th, td {
   text-align: left;
